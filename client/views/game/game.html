@@ -1,0 +1,73 @@
+<template name="game">
+  <div class="container">   
+    <div class="text-center">
+
+    <div class="leftdiv">
+
+    Round: {{counter}} <br/>
+        Score: {{ score}} <br/>
+        Average: {{ average }} <br/>
+        Highest: {{ highest }} <br/>
+        {{#if gameOn}}
+        {{else}}
+            Joshua gave faulty product in Round : {{ jList}} <br/>
+            Joshua gave faulty product in Round : {{ bList}} <br/>
+        {{/if}}
+        <!--bCount: {{ss.[0]}}-->
+        <!--jCount: {{ss.[1]}}-->
+      
+    </div>
+        
+    </div>
+
+      {{#if gameOn}}
+          <form class="form-horizontal" id="gameForm">
+              <fieldset>
+
+                  <!-- Form Name -->
+                  <legend>Buy from one of them</legend>
+
+                  <!-- Multiple Radios -->
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="">
+                          <h3 style="text-align: left;" class="h3left">Which seller would you purchase from?</h3>
+                          <!--<h2>Which seller would you purchase from?</h2>-->
+                      </label>
+                      <div class="col-md-4">
+                          <div class="radio">
+                              <label for="-0">
+                                  <input type="radio" name="seller" id="r1" value="joshua">
+                                  Seller: Joshua | Apple iPhone 6, 16GB | BDT {{joshua}}/=
+                                  <img class="iphone" src="https://lh3.googleusercontent.com/tJRah-yevG-tzytvKwvS1_-6EBzuzikyz7XMg9DH3qbuE-y7cA8_DxGbmeXhFLRwJNFL6g" alt="">
+                              </label>
+                          </div>
+                          <div class="radio">
+                              <label for="-1">
+                                  <input type="radio" name="seller" id="r2" value="brandon">
+                                  Seller: Brandon| Apple iPhone 6, 16GB | BDT {{brandon}}/=
+                                  <img class="iphone"  src="https://lh3.googleusercontent.com/tJRah-yevG-tzytvKwvS1_-6EBzuzikyz7XMg9DH3qbuE-y7cA8_DxGbmeXhFLRwJNFL6g" alt="">
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for=""></label>
+                      <div class="col-md-4">
+                          <button class="btn btn-success">Submit</button>
+                      </div>
+                  </div>
+
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+
+              </fieldset>
+          </form>
+
+          {{ else }}
+            <h1> Your profile is not set yet. please complete your profile first OR your score has already been sent to the score board</h1>
+      {{/if}}
+  </div>
+</template>

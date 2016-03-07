@@ -1,0 +1,176 @@
+<template name="profileForm">
+    <div class="container">
+        {{#if isFormShow}}
+            <form class="form-horizontal" id="submitProfile">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend>Profile Info</legend>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Name</label>
+                        <div class="col-md-4">
+                            <input type="text" placeholder="type name here" class="form-control input-md" id="name" required>
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="">ID</label>
+                        <div class="col-md-4">
+                            <input type="text" placeholder="your id" class="form-control input-md" id="id" required>
+
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group" id ="gender">
+                        <label class="col-md-4 control-label" for="gender">Gender</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="gender-0">
+                                    <input type="radio" name="gender" id="gender-0" value="male" required>
+                                    Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="gender-1">
+                                    <input type="radio" name="gender" id="gender-1" value="female" required>
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="">Age</label>
+                        <div class="col-md-4">
+                            <input type="text" placeholder="" class="form-control input-md" required id="age">
+                            <span class="help-block">number only</span>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="">Major</label>
+                        <div class="col-md-4">
+                            <input type="text" placeholder="" class="form-control input-md" required id="major">
+
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group" id ="believe">
+                        <label class="col-md-4 control-label" for="believe">Do you generally believe sellers?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="believe-0">
+                                    <input type="radio"  name="believe"  id="believe-0" value="1" >
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="believe-1">
+                                    <input type="radio" name="believe"  id="believe-1" value="2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group" id ="honest">
+                        <label class="col-md-4 control-label"  for="honest">Are sellers generally honest?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="honest-0">
+                                    <input type="radio" name="honest" id="honest-0" value="1" >
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="honest-1">
+                                    <input type="radio" name="honest" id="honest-1" value="2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group" id ="prefer">
+                        <label class="col-md-4 control-label" for="prefer">Do you prefer sellers who are more honest? *</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="prefer-0">
+                                    <input type="radio" id="prefer-0" value="1"  name="prefer" >
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="prefer-1">
+                                    <input type="radio" id="prefer-1" value="2" name="prefer" >
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group" id ="mostHonest">
+                        <label class="col-md-4 control-label" for="mostHonest">Which of the following sellers is most honest?</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="mostHonest-0">
+                                    <input   type="radio" name="mostHonest" id="mostHonest-0" value="1" >
+                                    A seller who always speaks the truth
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="mostHonest-1">
+                                    <input  type="radio" name="mostHonest" id="mostHonest-1" value="2">
+                                    A seller who reveals faults of a product to a buyer
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="mostHonest-2">
+                                    <input  type="radio" name="mostHonest" id="mostHonest-2" value="3">
+                                    A seller who likes to use good marketing
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="mostHonest-3">
+                                    <input  type="radio" name="mostHonest" id="mostHonest-3" value="4">
+                                    A seller who does not sell defective products
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for=""></label>
+                        <div class="col-md-4">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        {{else}}
+            <h1>You have already filled up your information. please proceed to the game.</h1>
+        {{/if}}
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+    </div>
+
+</template>
