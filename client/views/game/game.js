@@ -9,16 +9,16 @@ Template.game.onCreated(function(){
     self.bUtility = new ReactiveVar(0);
     self.jUtility = new ReactiveVar(0);
 
-    Session.set('joshuaFaultyList', []);
-    Session.set('brandonFaultyList', []);
+    Session.set('joshuaFaultyList', [29,1,14,23,25,21,30]);
+    Session.set('brandonFaultyList', [2,11,4,5,28,21,7]);
 
 
    // for joshua
     if(self.counter.get() == 1) {
-        var faultyJ = isFaulty();
+        //var faultyJ = isFaulty();
         //console.log(faulty, '<<< joshua');
-        if(faultyJ) {
-            self.jCounter.set(self.jCounter.get() + 1);
+        if( _.contains(Session.get('joshuaFaultyList'), self.counter.get() ) ) {
+            //self.jCounter.set(self.jCounter.get() + 1);
             self.jCurrent.set(62000);
             self.jUtility.set(42000);
         } else {
@@ -29,9 +29,9 @@ Template.game.onCreated(function(){
 
     // for brandon
     if(self.counter.get() == 1) {
-        var faultyB = isFaulty();
+        //var faultyB = isFaulty();
         //console.log(faulty, '<<< brandon');
-        if(faultyB) {
+        if( _.contains(Session.get('brandonFaultyList'), self.counter.get() )) {
             self.bCounter.set(self.bCounter.get() + 1);
             self.bCurrent.set(52000);
             self.bUtility.set(52000);
@@ -66,7 +66,7 @@ Template.game.helpers({
         return Template.instance().jCurrent.get();
     },
     average: function() {
-        var scores = Leaderboard.find({},{fields:{score:1}}).map(function(data){return data.score});
+        var scores = Leaderboard.find({}, { fields: { score:1 } }).map(function(data){ return data.score; } );
 
         var avg = _.reduce(scores, function(memo, num) {
                 return memo + num;
@@ -78,7 +78,7 @@ Template.game.helpers({
     },
 
     highest: function() {
-        var scores = Leaderboard.find({},{fields:{score:1}}).map(function(data){return data.score});
+        var scores = Leaderboard.find({},{ fields:{ score:1 } }).map(function(data){ return data.score; });
 
         var max  = _.max(scores, function(score){ return score; });
 
@@ -121,16 +121,10 @@ Template.game.events({
         $('#r1').prop('checked', false);
         $('#r2').prop('checked', false);
 
-        faultyJ = isFaulty();
-        faultyB = isFaulty();
-
-        //console.log(faultyJ, faultyB, template.jCounter.get(),template.bCounter.get());
+        
 
         if(template.counter.get() < 30) {
-            if(faultyJ && template.jCounter.get() < 7) {
-                var obj =  Session.get('joshuaFaultyList');
-                obj.push(template.counter.get());
-                Session.set('joshuaFaultyList', obj);
+            if( _.contains(Session.get('joshuaFaultyList'), template.counter.get() ) ) {
                 template.jCounter.set(template.jCounter.get() + 1);
                 template.jCurrent.set(62000);
                 template.jUtility.set(42000);
@@ -139,11 +133,7 @@ Template.game.events({
                 template.jUtility.set(62000);
             }
 
-            if(faultyB && template.bCounter.get() < 7) {
-                var obj =  Session.get('brandonFaultyList');
-                obj.push(template.counter.get());
-
-                Session.set('brandonFaultyList',obj);
+            if( _.contains(Session.get('brandonFaultyList'), template.counter.get() ) ) {
                 template.bCounter.set(template.bCounter.get() + 1);
                 template.bCurrent.set(52000);
                 template.bUtility.set(52000);
@@ -170,5 +160,5 @@ Template.game.events({
 });
 
 function isFaulty() {
-    return Math.random()<.5;
+    return Math.random()< 0.5;
 }
