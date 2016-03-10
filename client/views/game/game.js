@@ -8,6 +8,7 @@ Template.game.onCreated(function(){
     self.jCurrent = new ReactiveVar(0);
     self.bUtility = new ReactiveVar(0);
     self.jUtility = new ReactiveVar(0);
+    self.gameOver = new ReactiveVar(false);
 
     Session.set('joshuaFaultyList', [29,1,14,23,25,21,30]);
     Session.set('brandonFaultyList', [2,11,4,5,28,21,7]);
@@ -57,6 +58,9 @@ Template.game.helpers({
 
     gameOn: function() {
        return (Template.instance().counter.get() < 30 && Session.get('userId'));
+    },
+    gameOver: function() {
+      return (Template.instance().gameOver.get());
     },
     brandon: function() {
         return Template.instance().bCurrent.get();
@@ -121,7 +125,7 @@ Template.game.events({
         $('#r1').prop('checked', false);
         $('#r2').prop('checked', false);
 
-        
+
 
         if(template.counter.get() < 30) {
             if( _.contains(Session.get('joshuaFaultyList'), template.counter.get() ) ) {
@@ -146,6 +150,7 @@ Template.game.events({
             Meteor.call('sendScore',template.score.get(),Session.get('userId'),function(err){
                 if(!err) {
                     sAlert.success('your score has been updated to the Leaderboard!');
+                    template.gameOver.set(true);
                 }
                 else {
                     sAlert.error('Something is wrong!');
