@@ -111,13 +111,20 @@ Template.game.events({
         }
         else if(selected === 'joshua') {
             template.score.set(template.score.get() + template.jUtility.get());
-            var text = (template.jUtility.get() >52000) ? 'Congrats! ' : '';
-            sAlert.info(text+' your net utility  is '+ template.jUtility.get() + 'BDT');
+            if (template.jUtility.get() === 52000) {
+                sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
+            } else {
+                sAlert.error('Oops! You have bought a refurbished iPhone at Tk. 62,000. Your net utility is Tk. 42,000');
+            }
             template.counter.set(template.counter.get() + 1);
         }
         else {
             template.score.set(template.score.get() + template.bUtility.get());
-            sAlert.info('your net utility  is '+ template.bUtility.get() + 'BDT');
+            if( template.bUtility.get() == 52000) {
+                sAlert.info('Great! You have bought a refurbished iPhone at Tk. 52,000. Your net utility is Tk. 52,000');
+            } else {
+                sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
+            }
             template.counter.set(template.counter.get() + 1);
         }
 
