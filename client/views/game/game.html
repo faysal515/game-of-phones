@@ -8,13 +8,11 @@
                 Score: {{ score}} <br/>
                 Average: {{ average }} <br/>
                 Highest: {{ highest }} <br/>
-                {{#if gameOn}}
-                {{else}}
+                {{#if gameOver}}
                     Joshua gave faulty product in Round : {{ jList}} <br/>
                     Joshua gave faulty product in Round : {{ bList}} <br/>
                 {{/if}}
-                <!--bCount: {{ss.[0]}}-->
-                <!--jCount: {{ss.[1]}}-->
+
 
             </div>
 
@@ -25,7 +23,7 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    
+
                     <h3 style="text-align: center;" class="h3Center">Which seller would you purchase from?</h3>
 
                     <!-- Multiple Radios -->

@@ -111,7 +111,7 @@ Template.game.events({
         }
         else if(selected === 'joshua') {
             template.score.set(template.score.get() + template.jUtility.get());
-            if (template.jUtility.get() === 52000) {
+            if (template.jUtility.get() === 62000) {
                 sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
             } else {
                 sAlert.error('Oops! You have bought a refurbished iPhone at Tk. 62,000. Your net utility is Tk. 42,000');
