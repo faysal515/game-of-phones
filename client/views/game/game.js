@@ -36,7 +36,7 @@ Template.game.onCreated(function(){
         if( _.contains(Session.get('joshuaFaultyList'), self.counter.get() ) ) {
             //self.jCounter.set(self.jCounter.get() + 1);
             self.jCurrent.set(62000);
-            self.jUtility.set(42000);
+            self.jUtility.set(-18000);
         } else {
             self.jCurrent.set(62000);
             self.jUtility.set(62000);
@@ -49,8 +49,8 @@ Template.game.onCreated(function(){
         //console.log(faulty, '<<< brandon');
         if( _.contains(Session.get('brandonFaultyList'), self.counter.get() )) {
             self.bCounter.set(self.bCounter.get() + 1);
-            self.bCurrent.set(52000);
-            self.bUtility.set(52000);
+            self.bCurrent.set(22000);
+            self.bUtility.set(22000);
         } else {
             self.bCurrent.set(62000);
             self.bUtility.set(62000);
@@ -129,14 +129,14 @@ Template.game.events({
             if (template.jUtility.get() === 62000) {
                 sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
             } else {
-                sAlert.error('Oops! You have bought a refurbished iPhone at Tk. 62,000. Your net utility is Tk. 42,000');
+                sAlert.error('Oops! You have bought a replica iPhone at Tk. 62,000. Your net utility is Tk. -18000');
             }
             template.counter.set(template.counter.get() + 1);
         }
         else {
             template.score.set(template.score.get() + template.bUtility.get());
             if( template.bUtility.get() == 52000) {
-                sAlert.info('Great! You have bought a refurbished iPhone at Tk. 52,000. Your net utility is Tk. 52,000');
+                sAlert.info('Great! You have bought a replica iPhone at Tk. 22,000. Your net utility is Tk. 22,000');
             } else {
                 sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
             }
@@ -153,7 +153,7 @@ Template.game.events({
             if( _.contains(Session.get('joshuaFaultyList'), template.counter.get() ) ) {
                 template.jCounter.set(template.jCounter.get() + 1);
                 template.jCurrent.set(62000);
-                template.jUtility.set(42000);
+                template.jUtility.set(-18000);
             } else {
                 template.jCurrent.set(62000);
                 template.jUtility.set(62000);
@@ -161,8 +161,8 @@ Template.game.events({
 
             if( _.contains(Session.get('brandonFaultyList'), template.counter.get() ) ) {
                 template.bCounter.set(template.bCounter.get() + 1);
-                template.bCurrent.set(52000);
-                template.bUtility.set(52000);
+                template.bCurrent.set(22000);
+                template.bUtility.set(22000);
             } else {
                 template.bCurrent.set(62000);
                 template.bUtility.set(62000);

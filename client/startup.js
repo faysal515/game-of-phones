@@ -2,7 +2,7 @@ Meteor.startup(function () {
     sAlert.config({
         effect: 'jelly',
         position: 'bottom-right',
-        timeout: 2000,
+        timeout: 5000,
         html: false,
         onRouteClose: true,
         stack: true,
