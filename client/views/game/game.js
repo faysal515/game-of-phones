@@ -121,7 +121,7 @@ Template.game.events({
 
         //console.log(template.jUtility.get());
         if(_.isUndefined(selected)) {
-            sAlert.error('please select One option');
+            sAlert.error('Please select One option');
             return;
         }
         else if(selected === 'joshua') {
@@ -135,7 +135,7 @@ Template.game.events({
         }
         else {
             template.score.set(template.score.get() + template.bUtility.get());
-            if( template.bUtility.get() == 52000) {
+            if( template.bUtility.get() == 22000) {
                 sAlert.info('Great! You have bought a replica iPhone at Tk. 22,000. Your net utility is Tk. 22,000');
             } else {
                 sAlert.success('Congrats! You have bought a brand new iPhone at Tk. 62,000. Your net utility is Tk. 62,000');
@@ -167,7 +167,7 @@ Template.game.events({
                 template.bCurrent.set(62000);
                 template.bUtility.set(62000);
             }
-        } else {
+        } else if ( template.counter.get() == 30) {
             //console.log(Session.get('userId'));
             Meteor.call('sendScore',template.score.get(),Session.get('userId'),function(err){
                 if(!err) {
