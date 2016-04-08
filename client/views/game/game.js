@@ -10,8 +10,23 @@ Template.game.onCreated(function(){
     self.jUtility = new ReactiveVar(0);
     self.gameOver = new ReactiveVar(false);
 
-    Session.set('joshuaFaultyList', [29,1,14,23,25,21,30]);
-    Session.set('brandonFaultyList', [2,11,4,5,28,21,7]);
+   /* 1.0		2.0
+    3.0		3.0
+    5.0		5.0
+    6.0		7.0
+    8.0		8.0
+    11.0		9.0
+    14.0		12.0
+    17.0		17.0
+    19.0		18.0
+    20.0		21.0
+    22.0		22.0
+    25.0		24.0
+    26.0		25.0
+    28.0		29.0
+    30.0		30.0*/
+    Session.set('joshuaFaultyList', [2, 3, 5, 7, 8, 9, 12, 17, 18, 21, 22, 24, 25, 29, 30]);
+    Session.set('brandonFaultyList', [1, 3, 5, 6, 8, 11, 14, 17, 19, 20, 22, 25, 26, 28, 30]);
 
 
    // for joshua
