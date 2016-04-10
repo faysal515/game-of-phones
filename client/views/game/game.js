@@ -61,6 +61,9 @@ Template.game.onCreated(function(){
 });
 
 Template.game.helpers({
+    checker: function() {
+        return (Session.get('userId') && Template.instance().gameOver.get() ) ? true :false;
+    },
     counter: function(){
         return Template.instance().counter.get();
     },
@@ -72,7 +75,7 @@ Template.game.helpers({
     },
 
     gameOn: function() {
-       return (Template.instance().counter.get() < 30 && Session.get('userId'));
+       return (Template.instance().counter.get() <= 30 && Session.get('userId'));
     },
     gameOver: function() {
       return (Template.instance().gameOver.get());
@@ -149,7 +152,7 @@ Template.game.events({
 
 
 
-        if(template.counter.get() < 30) {
+        if(template.counter.get() <= 30) {
             if( _.contains(Session.get('joshuaFaultyList'), template.counter.get() ) ) {
                 template.jCounter.set(template.jCounter.get() + 1);
                 template.jCurrent.set(62000);
@@ -167,7 +170,7 @@ Template.game.events({
                 template.bCurrent.set(62000);
                 template.bUtility.set(62000);
             }
-        } else if ( template.counter.get() == 30) {
+        } else if ( template.counter.get() > 30) {
             //console.log(Session.get('userId'));
             Meteor.call('sendScore',template.score.get(),Session.get('userId'),function(err){
                 if(!err) {

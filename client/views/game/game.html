@@ -4,7 +4,10 @@
 
             <div class="leftdiv">
 
-                Round: {{counter}} <br/>
+                {{#if gameOn}}
+                    Round: {{counter}} <br/>
+                {{/if}}
+
                 Score: {{ score}} <br/>
                 Average: {{ average }} <br/>
                 Highest: {{ highest }} <br/>
@@ -65,8 +68,11 @@
                 </fieldset>
             </form>
 
-        {{ else }}
-            <h1> Your profile is not set yet. please complete your profile first OR your score has already been sent to the score board</h1>
+
+        {{/if}}
+
+        {{#if checker}}
+                <h4>Thank you for playing</h4>
         {{/if}}
     </div>
 </template>
